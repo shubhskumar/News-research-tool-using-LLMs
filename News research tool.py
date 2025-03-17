@@ -13,7 +13,6 @@ from langchain.vectorstores import FAISS
 from dotenv import load_dotenv
 load_dotenv()
 
-#os.environ['OPENAI_API_KEY'] = ''
 st.title("News research tool")
 st.sidebar.title("News article urls")
 
@@ -36,6 +35,7 @@ if process_url_clicked:
     main_placeholder.text("Data loading started...")
     data = loader.load()
 
+    # chunking
     text_splitter = RecursiveCharacterTextSplitter(
         separators=['\n\n', '\n', '.', ','],
         chunk_size = 1000
